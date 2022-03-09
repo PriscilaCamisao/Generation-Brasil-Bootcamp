@@ -1,0 +1,1 @@
+package org.generation.lojagames.lojagames.repository;
