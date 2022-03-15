@@ -1,10 +1,13 @@
 package org.generation.lojagames.lojagames.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -32,17 +35,16 @@ public class CategoriaModel {
 	private String nome;
 	
 	@NotNull
-	@Size(min = 5, max = 120)
-	private double versao;
+	//@Size(min = 5, max = 120)
+	private String versao;
 	
-	@NotNull
-	@Size(min = 4, max = 10)
+	//@Size(min = 4, max = 10)
 	private double preco;
 	
-	@ManyToOne
-	@JsonIgnoreProperties("tb_categoria")
-	private ProdutoModel produto;
-
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("categoria")
+	private List<ProdutoModel> produto;
+	
 	public long getId() {
 		return id;
 	}
@@ -75,11 +77,11 @@ public class CategoriaModel {
 		this.nome = nome;
 	}
 
-	public double getVersao() {
+	public String getVersao() {
 		return versao;
 	}
 
-	public void setVersao(double versao) {
+	public void setVersao(String versao) {
 		this.versao = versao;
 	}
 
@@ -91,13 +93,13 @@ public class CategoriaModel {
 		this.preco = preco;
 	}
 
-	public ProdutoModel getProduto() {
+	public List<ProdutoModel> getProduto() {
 		return produto;
 	}
 
-	public void setProduto(ProdutoModel produto) {
+	public void setProduto(List<ProdutoModel> produto) {
 		this.produto = produto;
 	}
-	
+
 	
 }

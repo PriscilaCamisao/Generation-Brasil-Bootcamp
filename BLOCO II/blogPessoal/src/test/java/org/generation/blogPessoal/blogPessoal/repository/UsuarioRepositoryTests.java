@@ -33,7 +33,10 @@ public class UsuarioRepositoryTests {
 	
 	@BeforeAll
 	void start() {
-										//ID usuario / Nome / Usuario(email) / Senha / Link da foto
+		
+		/** 
+		 * Persiste (Grava) 4 Objetos Usuario no Banco de dados
+		 ID usuario / Nome / Usuario(email) / Senha / Link da foto*/
 		usuarioRepository.save(new Usuario(0L, "Ramon Daniel Santos", "ramonzito@clovis.com", "123456789", "https://i.imgur.com/FETvs2O.jpgn"));
 		
 		usuarioRepository.save(new Usuario(0L, "Robson Carmo", "robsonbruxinho@carmo.com", "mago1234", "https://i.imgur.com/FETvs2O.jpgn"));
@@ -46,7 +49,15 @@ public class UsuarioRepositoryTests {
 	@DisplayName("Deve retornar apenas um usuário")
 	public void deveRetornarUmUsuario() {
 		
+		/**
+		 *  Executa o método findByUsuario para buscar um usuario pelo nome (joao@email.com.br)
+		 */
 		Optional<Usuario> usuario = usuarioRepository.findByUsuario("ramonzito@clovis.com");
+		
+		/**
+		 *  Verifica se a afirmação: "É verdade que a busca retornou o usuario joao@email.com.br" é verdadeira
+		 *  Se for verdaeira, o teste passa, senão o teste falha. 
+		 */
 		assertTrue(usuario.get().getUsuario().equals("ramonzito@clovis.com"));	
 	}
 	
@@ -55,10 +66,39 @@ public class UsuarioRepositoryTests {
 	@DisplayName("Deve retornar 3 usuários")
 	
 	public void deveRetornarTresUsuarios() {
+		
+		/**
+		 *  Executa o método findAllByNomeContainingIgnoreCase para buscar todos os usuarios cujo nome contenha
+		 *  a palavra "Silva"
+		 */
 		List<Usuario> listaDeUsuarios = usuarioRepository.findAllByNomeContainingIgnoreCase("Santos");
+		
+		/**
+		 * Verifica se a afirmação: "É verdade que a busca retornou 3 usuarios, cujo nome possua a palavra Silva" 
+		 * é verdadeira
+		 * Se for verdadeira, o teste passa, senão o teste falha.
+		 */
 		assertEquals(3, listaDeUsuarios.size());
+		
+		/**
+		 *  Verifica se a afirmação: "É verdade que a busca retornou na primeira posição da Lista o usuario 
+		 * João da Silva" é verdadeira
+		 * Se for verdadeira, o teste passa, senão o teste falha.
+		 */
 		assertTrue(listaDeUsuarios.get(0).getNome().equals("Ramon Daniel Santos"));
+		
+		/**
+		 *  Verifica se a afirmação: "É verdade que a busca retornou na segunda posição da Lista a usuaria 
+		 * Manuela da Silva" é verdadeira
+		 * Se for verdadeira, o teste passa, senão o teste falha.
+		 */
 		assertTrue(listaDeUsuarios.get(1).getNome().equals("Robson Carmo"));
+		
+		/**
+		 *  Verifica se a afirmação: "É verdade que a busca retornou na primeira posição da Lista a usuaria 
+		 * Adriana da Silva" é verdadeira
+		 * Se for verdadeira, o teste passa, senão o teste falha.
+		 */
 		assertTrue(listaDeUsuarios.get(3).getNome().equals("Paola Bracho Santos"));
 	}
 	

@@ -76,7 +76,7 @@ public class PostagemController {
 		
 	}
 
-	@ResponseStatus(HttpStatus.NO_CONTENT)
+	//@ResponseStatus(HttpStatus.NO_CONTENT)//
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		Optional<Postagem> postagem = postagemRepository.findById(id);

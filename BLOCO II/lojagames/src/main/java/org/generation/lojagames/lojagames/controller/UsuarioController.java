@@ -1,19 +1,16 @@
-package org.generation.blogPessoal.controller;
+package org.generation.lojagames.lojagames.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
-import org.generation.blogPessoal.model.Usuario;
-import org.generation.blogPessoal.model.UsuarioLogin;
-import org.generation.blogPessoal.repository.UsuarioRepository;
-import org.generation.blogPessoal.service.UsuarioService;
+import org.generation.lojagames.lojagames.model.Usuario;
+import org.generation.lojagames.lojagames.model.UsuarioLogin;
+import org.generation.lojagames.lojagames.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,29 +24,26 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@Autowired
-	private UsuarioRepository usuarioRepository;
+	/*@Autowired
+	private UsuarioRepository usuarioRepository;*/
 	
-	
-	@GetMapping("all")
-		public ResponseEntity <List<Usuario>> getAll(){
-		return ResponseEntity.ok(usuarioRepository.findAll());
-	}
-	
+	/*@GetMapping("/all")
+	public ResponseEntity<List<Usuario>> getAll() {
+	return ResponseEntity.ok(usuarioRepository.findAll());
+	}*/
 	
 	@PostMapping("/logar")
 	public ResponseEntity<UsuarioLogin> login(@RequestBody Optional<UsuarioLogin> user) {
-		return usuarioService.autenticarUsuario(user)
+		return usuarioService.Logar(user)
 			.map(resposta -> ResponseEntity.ok(resposta))
 			.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 	
-	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario){
-		return usuarioService.cadastrarUsuario(usuario)
-				.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(resposta))
-				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
-		
+	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(usuarioService.CadastrarUsuario(usuario));
+
 	}
+	
 }
