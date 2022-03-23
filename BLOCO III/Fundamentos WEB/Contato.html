@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="pp-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">">
+    <title>PETS</title>
 </head>
 <body>
     <ul> <!-- Abertura ul=lista não ordenada-->
@@ -21,12 +24,15 @@
 
     <form>
         <label for="Nome"> Nome: </label> <br>
-        <input type="text" id="Nome">
+        <input type="text" id="Nome" onkeyup="validarNome()" name="Nome" value="">
         <!-- br=pular linha-->
+        <div id="txtNome">
+
+        </div>
         <br>
         <br>
         <label for="Email"> Email: </label> <br>
-        <input type="text" id="Email">
+        <input type="text" id="Email" name="Email" value="">
         <!-- br=pular linha-->
         <br>
         <br>
@@ -54,5 +60,8 @@
         ></iframe>
 
     </form>
+
+<script src="assets/JS/script.js"></script> 
+
 </body>
 </html>
