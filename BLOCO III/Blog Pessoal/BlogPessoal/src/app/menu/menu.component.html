@@ -1,3 +1,33 @@
-<app-menu></app-menu>
-<app-home></app-home>
-<app-rodape></app-rodape>
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <!--mr=foto e nome a esquerda/ml=foto e nome a direita/m=foto e nome centralizados-->
+    <ul class="navbar-nav mr-auto d-flex align-items-center">
+      <li class="nav-item active">
+        <!--IMAGEM TESTE-->
+        <img src="https://wallpaperaccess.com/thumb/22953.jpg" alt="Imagem Teste" width="50px" height="50px" class="img-fluid rounded-circle">
+      </li>
+      <li class="nav-item pl-3">
+        <!-- tipo de fonte / text-white=texto branco / .fs-16=tamanho da fonte -->
+        <p class="m-0 font-weight-bold text-white .fs-16">Nome do usuário</p>
+      </li>
+
+      <li class="nav-item pl-3">
+        <!--Tornar clicavel-->
+        <a href="">
+          <p class="text-white .fs-16 m-0"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></p>
+        </a>        
+      </li>      
+    </ul>
+
+    <ul class="navbar-nav ml-auto d-flex align-items-center"></ul>
+    <li class="nav-item pl-3">
+      <!-- tipo de fonte / text-white=texto branco / .fs-16=tamanho da fonte -->
+      <a class="m-0 font-weight-bold text-white .fs-16">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+    </li>
+
+  </div>
+</nav>
