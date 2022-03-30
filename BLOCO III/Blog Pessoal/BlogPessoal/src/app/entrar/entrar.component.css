@@ -1,9 +1,37 @@
 #img-bg{
-    background-image: url('https://i.pinimg.com/564x/40/68/ab/4068ab05d410e407ae0dba0e5a3222f2.jpg');
+    background-image: url('https://my.spline.design/lowpolyheadphonescopy-4b439afd1cce0949e1c0fa00662f75ba/');
 
     min-height: 695px;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Georgia;
+}
+
+#img-bg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgb(235, 49, 194), rgb(120, 231, 98), rgb(186, 64, 202), rgb(233, 245, 64), rgb(87, 13, 224));
+    background-size: 300% 200%;
+    animation-name: degrade;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes degrade{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position-x: 100%;
+    }
 }
