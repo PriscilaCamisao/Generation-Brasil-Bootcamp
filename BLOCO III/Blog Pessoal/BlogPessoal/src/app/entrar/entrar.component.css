@@ -15,7 +15,7 @@
     font-family: Georgia;
 }
 
-#img-bg{
+/*#img-bg{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,4 +34,19 @@
     100%{
         background-position-x: 100%;
     }
+}*/
+
+.btn-success {
+    color: black;
+    background-color: aqua;
+    border-color: aqua;
+    padding: 2%;
+}
+
+.form-group {
+    color: aqua;
+}
+
+a {
+    color: aqua;
 }
