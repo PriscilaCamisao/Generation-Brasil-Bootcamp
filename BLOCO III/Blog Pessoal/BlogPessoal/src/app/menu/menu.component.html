@@ -8,16 +8,17 @@
     <ul class="navbar-nav mr-auto d-flex align-items-center">
       <li class="nav-item active">
         <!--IMAGEM TESTE-->
-        <img src="https://wallpaperaccess.com/thumb/22953.jpg" alt="Imagem Teste" width="50px" height="50px" class="img-fluid rounded-circle">
+        <img src="{{foto}}" alt="Imagem Teste" width="50px" height="50px" class="img-fluid rounded-circle">
       </li>
       <li class="nav-item pl-3">
         <!-- tipo de fonte / text-white=texto branco / .fs-16=tamanho da fonte -->
-        <p class="m-0 font-weight-bold text-white .fs-16">Nome do usuário</p>
+        <p class="m-0 font-weight-bold text-white .fs-16">Olá, {{nome}}</p>
       </li>
 
       <li class="nav-item pl-3">
+        <!--<li *ngIf='auth.adm()' class="nav-item pl-3" -- Para bloquear acesso-->
         <!--Tornar clicavel-->
-        <a href="">
+        <a [routerLink]="['/user-edit', id]">
           <p class="text-white .fs-16 m-0"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></p>
         </a>        
       </li>      

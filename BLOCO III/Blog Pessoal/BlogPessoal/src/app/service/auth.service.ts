@@ -22,10 +22,24 @@ export class AuthService {
     return this.http.post<User>('http://localhost:8080/ususarios/cadastrar', user)
   }
 
+  getByIdUser(id: number): Observable<User>{
+    return this.http.get<User>(`http://localhost:8080/ususarios/${id}`)
+  }
+
   logado(){
     let ok: boolean = false
 
     if(environment.token != ''){
+    ok = true
+  }
+  
+    return ok
+  }
+
+  adm(){
+    let ok: boolean = false
+
+    if(environment.tipo == 'adm'){
     ok = true
   }
   
